@@ -1,0 +1,60 @@
+{
+    "name": "opencode-go-monitor-remote",
+    "version": "2.0.0-remote.1",
+    "description": "OpenCode Go 用量监控台（远程分支：拉取工作区云端用量）",
+    "author": {
+        "name": "AndersOnLin4-Design",
+        "email": "andersonlin1107@gmail.com",
+        "url": "https://github.com/AndersOnLin4"
+    },
+    "main": "src/main.js",
+    "private": true,
+    "scripts": {
+        "start": "electron .",
+        "dist": "electron-builder --win"
+    },
+    "build": {
+        "appId": "dev.andersonlin.opencode-go-monitor",
+        "productName": "OpenCode Go Monitor",
+        "directories": {
+            "output": "release"
+        },
+        "asar": true,
+        "files": [
+            "src/**/*",
+            "dashboard.html",
+            "package.json"
+        ],
+        "extraResources": [
+            {
+                "from": "extract.js",
+                "to": "scripts/extract.js"
+            },
+            {
+                "from": "fetch-quota.js",
+                "to": "scripts/fetch-quota.js"
+            },
+            {
+                "from": "remote.js",
+                "to": "scripts/remote.js"
+            },
+            {
+                "from": "node_modules/seroval",
+                "to": "scripts/node_modules/seroval"
+            }
+        ],
+        "win": {
+            "target": [
+                "nsis",
+                "portable"
+            ]
+        }
+    },
+    "devDependencies": {
+        "electron": "^43.4.1",
+        "electron-builder": "^26.15.3"
+    },
+    "dependencies": {
+        "seroval": "^1.6.3"
+    }
+}

@@ -1,0 +1,13 @@
+# 依赖与构建产物
+node_modules/
+release/
+dist/
+
+# 运行时生成的数据（含个人用量与配置，勿提交）
+data/
+# 远程配置含 Cookie，已随 data/ 一并忽略
+
+# 日志与临时文件
+*.log
+*.tmp
+.DS_Store
